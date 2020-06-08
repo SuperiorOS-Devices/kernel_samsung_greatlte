@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# SPDX-License-Identifier: GPL-2.0
+
+dtb-$(CONFIG_CAMERA_DREAM) += exynos8895-dreamlte_eur_open_05.dtb \
+=======
 dtb-$(CONFIG_ARCH_EXYNOS7) += exynos7-espresso.dtb
 
 dtb-$(CONFIG_SOC_EXYNOS8890) += exynos8890-maestro.dtb
@@ -34,11 +39,15 @@ dtb-$(CONFIG_MACH_EXYNOS8895_DREAMLTE_EUR_OPEN) := \
 	exynos8895-dreamlte_eur_open_03.dtb \
 	exynos8895-dreamlte_eur_open_04.dtb \
 	exynos8895-dreamlte_eur_open_05.dtb \
+>>>>>>> ebc62a93a806... Enable Galaxy Note 8/Galaxy S8/Galaxy S8+ DTB targets
 	exynos8895-dreamlte_eur_open_07.dtb \
 	exynos8895-dreamlte_eur_open_08.dtb \
 	exynos8895-dreamlte_eur_open_09.dtb \
 	exynos8895-dreamlte_eur_open_10.dtb
 
+<<<<<<< HEAD
+dtb-$(CONFIG_CAMERA_DREAM2) += exynos8895-dream2lte_eur_open_07.dtb \
+=======
 dtb-$(CONFIG_MACH_EXYNOS8895_DREAMLTE_KOR) := \
 	exynos8895-dreamlte_kor_05.dtb \
 	exynos8895-dreamlte_kor_07.dtb \
@@ -54,10 +63,18 @@ dtb-$(CONFIG_MACH_EXYNOS8895_DREAM2LTE_EUR_OPEN) := \
 	exynos8895-dream2lte_eur_open_05.dtb \
 	exynos8895-dream2lte_eur_open_06.dtb \
 	exynos8895-dream2lte_eur_open_07.dtb \
+>>>>>>> ebc62a93a806... Enable Galaxy Note 8/Galaxy S8/Galaxy S8+ DTB targets
 	exynos8895-dream2lte_eur_open_08.dtb \
 	exynos8895-dream2lte_eur_open_09.dtb \
 	exynos8895-dream2lte_eur_open_10.dtb
 
+<<<<<<< HEAD
+dtb-$(CONFIG_CAMERA_GREAT) += exynos8895-greatlte_eur_open_02.dtb \
+	exynos8895-greatlte_eur_open_06.dtb
+
+always            := $(dtb-y) $(dtbo-y)
+clean-files       := *.dtb*
+=======
 dtb-$(CONFIG_MACH_EXYNOS8895_DREAM2LTE_KOR) := \
 	exynos8895-dream2lte_kor_03.dtb \
 	exynos8895-dream2lte_kor_04.dtb \
@@ -69,3 +86,4 @@ dtb-$(CONFIG_MACH_EXYNOS8895_DREAM2LTE_KOR) := \
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb
+>>>>>>> ebc62a93a806... Enable Galaxy Note 8/Galaxy S8/Galaxy S8+ DTB targets
