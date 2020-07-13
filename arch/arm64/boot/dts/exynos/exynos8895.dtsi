@@ -48,7 +48,7 @@
 					mnt_flags = "noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic";
 					fsmgr_flags = "wait,check";
 					status = "ok";
-				};
+				}; 
 			};
 		};
 	};
@@ -541,11 +541,13 @@
 			dm-type = <DM_CPU_CL1>;
 
 			min-freq = <741000>;
+			max-freq = <2652000>;
 
 			/* PM QoS Class ID*/
 			pm_qos-min-class = <5>;
 			pm_qos-max-class = <6>;
 			pm_qos-jigbooting = <1469000>;
+			pm_qos-booting = <2002000>;
 
 			/* auto calibration value */
 			auto-cal-freq = <1703000>;
@@ -562,8 +564,8 @@
 						  2574000 1794000
 						  2496000 1794000
 						  2314000 1794000
-						  2158000 1540000
-						  2002000 1540000
+						  2158000 1794000
+						  2002000 1794000
 						  1937000 1352000
 						  1807000 1352000
 						  1703000 1014000
@@ -791,18 +793,18 @@
 		gpu_dvfs_table = <  839000    98  100   1  1794000  1690000     0
 		                    764000    98  100   1  1794000  1690000     0
 		                    683000    98  100   1  1794000  1690000     0
-		                    572000    78   99   1  1794000  1690000     0
-		                    546000    78   99   1  1794000  1690000     2002000
-		                    455000    78   85   1  1540000  1456000     2002000
-		                    385000    78   85   1  1352000  1248000     0
-		                    338000    78   85   1  1014000   949000     0
-		                    260000    78   85   1   421000        0     0 >;
+		                    572000    78   99   1  1794000        0     1937000
+		                    546000    78   99   1  1794000        0     1937000
+		                    455000    78   85   1  1540000        0     1937000
+		                    385000    78   85   1  1352000        0     2002000
+		                    338000    78   85   1  1014000        0     2002000
+		                    260000    78   85   1   421000        0     2002000 >;
 		gpu_sustainable_info = <0 0 0 0 0>; /* Not used */
 		gpu_pmqos_cpu_cluster_num = <2>;
 		gpu_pmu_status_reg_offset = <0x40E4>;
 		gpu_pmu_status_local_pwr_mask = <0xF>; /*0xF << 0*/
-		gpu_max_clock = <546000>;
-		gpu_max_clock_limit = <546000>;
+		gpu_max_clock = <572000>;
+		gpu_max_clock_limit = <572000>;
 		gpu_min_clock = <260000>;
 		gpu_dvfs_start_clock = <260000>;
 		gpu_dvfs_bl_config_clock = <260000>;
@@ -811,7 +813,7 @@
 		gpu_voltage_offset_margin = <37500>;
 		gpu_tmu_control = <1>;
 		gpu_temp_throttling_level_num = <6>;
-		gpu_temp_throttling = <546000 455000 385000 338000 260000 260000>;
+		gpu_temp_throttling = <572000 546000 455000 385000 338000 260000>;
 		gpu_power_coeff = <625>;
 		gpu_dvfs_time_interval = <5>; /*1 tick : 10ms*/
 		gpu_default_wakeup_lock = <1>;
@@ -824,17 +826,17 @@
 		gpu_dvfs_polling_time = <30>;
 		gpu_pmqos_int_disable = <1>;
 		gpu_pmqos_mif_max_clock = <1794000>;
-		gpu_pmqos_mif_max_clock_base = <546000>;
-		gpu_cl_dvfs_start_base = <455000>;
+		gpu_pmqos_mif_max_clock_base = <572000>;
+		gpu_cl_dvfs_start_base = <260000>;
 		gpu_debug_level = <3>; /*DEBUG(1) INFO(2) WARNING(3) ERROR(4)*/
 		gpu_trace_level = <8>; /*TRACE_ALL*/
 		gpu_mo_min_clock = <455000>;
 		gpu_boost_gpu_min_lock = <0>;
 		gpu_boost_egl_min_lock = <1872000>;
-		gpu_vk_boost_max_lock = <338000>;
-		gpu_vk_boost_mif_min_lock = <1794000>;
+		gpu_vk_boost_max_lock = <572000>;
+		gpu_vk_boost_mif_min_lock = <845000>;
 		gpu_bts_support = <1>;
-		gpu_asv_cali_lock_val = <546000>; /*Should check this value when MALI_ASV_CALIBRATION_SUPPORT is enabled*/
+		gpu_asv_cali_lock_val = <572000>; /*Should check this value when MALI_ASV_CALIBRATION_SUPPORT is enabled*/
 		gpu_set_pmu_duration_reg = <0x40F0>; /* only for KC for now*/
 		gpu_set_pmu_duration_val = <0xfffff363>; /* only for KC for now*/
 	};
@@ -4594,13 +4596,16 @@
 		sensing_mode = "max";
 		/* gpu cooling related table */
 		/* flags, driver_data(index), frequency */
-		gpu_idx_num = <6>;
-		gpu_cooling_table = < 0 0 546000
-				      0 1 455000
-				      0 2 385000
-				      0 3 338000
-				      0 4 260000
-				      0 5 TABLE_END>;
+		gpu_idx_num = <7>;
+		gpu_cooling_table = <
+				      0 0 572000
+				      0 1 546000
+				      0 2 455000
+				      0 3 385000
+				      0 4 338000
+				      0 5 260000
+				      0 6 TABLE_END
+					>;
 		#include "exynos8895-tmu-sensor-conf.dtsi"
 	};
 
